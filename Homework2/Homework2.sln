@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagonalMatrix", "DiagonalMatrix\DiagonalMatrix.csproj", "{2237A259-9F4E-4E2E-B62F-904AE159DA7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingManagementSystem", "TrainingManagementSystem\TrainingManagementSystem.csproj", "{02D33BEA-19CB-4F9E-A17A-116E6A2B46B1}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2237A259-9F4E-4E2E-B62F-904AE159DA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2237A259-9F4E-4E2E-B62F-904AE159DA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2237A259-9F4E-4E2E-B62F-904AE159DA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2237A259-9F4E-4E2E-B62F-904AE159DA7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D33BEA-19CB-4F9E-A17A-116E6A2B46B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D33BEA-19CB-4F9E-A17A-116E6A2B46B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D33BEA-19CB-4F9E-A17A-116E6A2B46B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D33BEA-19CB-4F9E-A17A-116E6A2B46B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
