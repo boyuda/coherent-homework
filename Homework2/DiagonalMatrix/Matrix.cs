@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DiagonalMatrix
 {
-    class DiagonalMatrix
+    class Matrix
     {
         public int[] DiagonalNumbers;
         public int Size { get; private set; }
+
         //var newArray = new int[diagonalNumbers.Size, diagonalNumbers.Size];
 
-        public DiagonalMatrix(params int[] diagonalNumbers)
+        public Matrix(params int[] diagonalNumbers)
         {
             this.DiagonalNumbers = diagonalNumbers;
 
@@ -31,6 +32,28 @@ namespace DiagonalMatrix
 
 
         }
+
+        //Creating empty Matrix and assigning diagonal values to it
+        public int[,] CreateDiagonalMatrix()
+        {
+            int[,] DiagonalMatrix = new int[Size,Size];
+            for (int row = 0; row < Size; row++)
+            {
+                for (int column = 0; column < Size; column++)
+                {
+                    if (row == column)
+                    {
+                        DiagonalMatrix[row, column] = DiagonalNumbers[row];
+
+                    }
+                }
+
+            }
+            return DiagonalMatrix;
+        }
+
+
+
 
         //Calculating the sum of the diagonal numbers
         public int Track()

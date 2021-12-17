@@ -7,7 +7,7 @@ namespace DiagonalMatrix
         static void Main(string[] args)
         {
             {
-                var diagonalNumbers = new DiagonalMatrix(8, 1, 2, 3, 6);
+                var diagonalNumbers = new Matrix(8, 1, 2, 3, 6);
                 Console.WriteLine(diagonalNumbers.Track());
 
                 Console.WriteLine(diagonalNumbers.Size);
@@ -19,18 +19,6 @@ namespace DiagonalMatrix
                 int[] num = { 8, 1, 2, 3, 6 };
 
 
-                for (int row = 0; row < diagonalNumbers.Size; row++)
-                {
-                    for (int column = 0; column < diagonalNumbers.Size; column++)
-                    {
-                        if (row == column)
-                        {
-                            newArray[row, column] = num[row];
-
-                        }
-                    }
-
-                }
 
                 //Testing function to display Matrix on the console
 
@@ -47,7 +35,11 @@ namespace DiagonalMatrix
                     }
                 }
 
-                print(newArray, diagonalNumbers.Size);
+
+                print(diagonalNumbers.CreateDiagonalMatrix(),5);
+
+
+                //print(newArray, diagonalNumbers.Size);
             }
         }
     }
