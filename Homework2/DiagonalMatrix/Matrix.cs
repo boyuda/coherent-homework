@@ -11,13 +11,11 @@ namespace DiagonalMatrix
         public int[] DiagonalNumbers;
         public int Size { get; private set; }
 
-        //var newArray = new int[diagonalNumbers.Size, diagonalNumbers.Size];
-
+        //Passing list of parameters to the constructor and creating size of an array;
         public Matrix(params int[] diagonalNumbers)
         {
             this.DiagonalNumbers = diagonalNumbers;
 
-            //Calculating the size of the Matrix
             if (diagonalNumbers == null)
             {
                 Size = 0;

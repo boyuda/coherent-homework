@@ -13,12 +13,6 @@ namespace DiagonalMatrix
                 Console.WriteLine(diagonalNumbers.Size);
 
 
-                //Testing the code to change Diagonal Values
-
-                var newArray = new int[diagonalNumbers.Size, diagonalNumbers.Size];
-                int[] num = { 8, 1, 2, 3, 6 };
-
-
 
                 //Testing function to display Matrix on the console
 
@@ -38,8 +32,6 @@ namespace DiagonalMatrix
 
                 print(diagonalNumbers.CreateDiagonalMatrix(),5);
 
-
-                //print(newArray, diagonalNumbers.Size);
             }
         }
     }
