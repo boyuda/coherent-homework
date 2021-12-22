@@ -9,9 +9,7 @@ namespace DiagonalMatrix
             {
                 var diagonalNumbers = new Matrix(8, 1, 2, 3, 6);
                 var diagonalNumbers2 = new Matrix(8, 1, 2, 3, 6, 7 );
-                Console.WriteLine(diagonalNumbers.Track());
 
-                Console.WriteLine(diagonalNumbers.Size);
 
                 var myMatrix = diagonalNumbers.CreateDiagonalMatrix();
                 diagonalNumbers.Track();
