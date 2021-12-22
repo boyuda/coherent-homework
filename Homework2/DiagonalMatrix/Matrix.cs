@@ -34,7 +34,7 @@ namespace DiagonalMatrix
         //Creating empty Matrix and assigning diagonal values to it
         public int[,] CreateDiagonalMatrix()
         {
-            int[,] DiagonalMatrix = new int[Size,Size];
+            int[,] DiagonalMatrix = new int[Size, Size];
             for (int row = 0; row < Size; row++)
             {
                 for (int column = 0; column < Size; column++)
@@ -65,17 +65,28 @@ namespace DiagonalMatrix
             return sum;
         }
 
-        //Ovveriding method Equals
+
         public override bool Equals(object obj)
         {
-            if (Size== ((Matrix)obj).Size)
+            if ((Size == ((Matrix)obj).Size))
             {
+                for (int i = 0; i < Size; i++)
+                {
+                    if (DiagonalNumbers[i] == ((Matrix)obj).DiagonalNumbers[i])
+                    {
+                        continue;   
+                    } 
+                    else
+                    {
+                        return false;
+                    }
+
+                }
                 return true;
             }
+
             return false;
 
         }
-
-
     }
 }
