@@ -8,11 +8,13 @@ namespace DiagonalMatrix
         {
             {
                 var diagonalNumbers = new Matrix(8, 1, 2, 3, 6);
+                var diagonalNumbers2 = new Matrix(2, 3, 5, 6, 7, 7);
                 Console.WriteLine(diagonalNumbers.Track());
 
                 Console.WriteLine(diagonalNumbers.Size);
 
-
+                var myMatrix = diagonalNumbers.CreateDiagonalMatrix();
+                diagonalNumbers.Track();
 
                 //Testing function to display Matrix on the console
 
@@ -29,9 +31,9 @@ namespace DiagonalMatrix
                     }
                 }
 
-
                 print(diagonalNumbers.CreateDiagonalMatrix(),5);
-
+                //Testing equals
+                Console.WriteLine(diagonalNumbers.Equals(diagonalNumbers2));
             }
         }
     }

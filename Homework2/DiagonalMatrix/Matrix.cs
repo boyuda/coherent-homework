@@ -64,5 +64,18 @@ namespace DiagonalMatrix
 
             return sum;
         }
+
+        //Ovveriding method Equals
+        public override bool Equals(object obj)
+        {
+            if (Size== ((Matrix)obj).Size)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+
     }
 }
