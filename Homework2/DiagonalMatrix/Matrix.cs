@@ -8,7 +8,7 @@ namespace DiagonalMatrix
 {
     class Matrix
     {
-        public int[] DiagonalNumbers;
+        public int[] DiagonalNumbers { get; set; }
         public int Size { get; private set; }
 
         //Passing list of parameters to the constructor and creating size of an array;
@@ -65,7 +65,7 @@ namespace DiagonalMatrix
             return sum;
         }
 
-
+        //Overriding Equals method to compare 2 matrixes
         public override bool Equals(object obj)
         {
             if ((Size == ((Matrix)obj).Size))
@@ -88,5 +88,32 @@ namespace DiagonalMatrix
             return false;
 
         }
+
+        //Adding ToString Overload to compare 2 matrixes
+        public string ToString(object obj)
+
+        {
+            if ((Size == ((Matrix)obj).Size))
+            {
+                for (int i = 0; i < Size; i++)
+                {
+                    if (DiagonalNumbers[i] == ((Matrix)obj).DiagonalNumbers[i])
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return "False";
+                    }
+
+                }
+                return "True";
+            }
+
+            return "False";
+
+        }
+
     }
+
 }

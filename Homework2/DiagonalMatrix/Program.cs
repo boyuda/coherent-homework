@@ -32,6 +32,8 @@ namespace DiagonalMatrix
                 print(diagonalNumbers.CreateDiagonalMatrix(),5);
                 //Testing equals
                 Console.WriteLine(diagonalNumbers.Equals(diagonalNumbers2));
+                Console.WriteLine(diagonalNumbers.ToString(diagonalNumbers2));
+              // diagonalNumbers.
             }
         }
     }
