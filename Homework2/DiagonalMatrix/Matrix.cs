@@ -131,38 +131,57 @@ namespace DiagonalMatrix
 
        
         //Adding extension method to sum up two matrixes
-        public static int[,] SumOfMatrix(int[,] matrixOne, int[,] matrixTwo)
+        public static void SumOfMatrix(int[,] matrixOne, int[,] matrixTwo)
         {
-            if (matrixOne.Length < matrixTwo.Length)
+            var matrixOneSize = matrixOne.GetLength(1);
+            var matrixTwoSize = matrixTwo.GetLength(1);
+
+            if (matrixOneSize < matrixTwoSize)
             {
-                for (int row = 0; row < matrixOne.Length; row++)
+                int[,] MatrixSum = new int[matrixTwoSize, matrixTwoSize];
+
+                for (int row = 0; row < matrixTwoSize; row++)
                 {
-                    for (int column = 0; column < matrixOne.Length; column++)
+                    for (int column = 0; column < matrixTwoSize; column++)
                     {
-                        matrixOne[row, column] = 0;
+                        MatrixSum[row, column] += matrixTwo[row, column];
+                        
+                        Console.Write(MatrixSum[row, column] + " ");
                     }
+                    Console.WriteLine();
                 }
             } 
-            else if (matrixTwo.Length>matrixOne.Length)
+            else if (matrixOneSize>matrixTwoSize)
             {
-                for (int row = 0; row < matrixOne.Length; row++)
+                int[,] MatrixSum = new int[matrixOneSize, matrixOneSize];
+
+                for (int row = 0; row < matrixOneSize; row++)
                 {
-                    for (int column = 0; column < matrixOne.Length; column++)
+                    for (int column = 0; column < matrixOneSize; column++)
                     {
-                        matrixTwo[row, column] = 0;
+                        MatrixSum[row, column] += matrixOne[row, column];
+
+                        Console.Write(MatrixSum[row, column] + " ");
                     }
+                    Console.WriteLine();
+                }
+            } 
+            else
+            {
+                int[,] MatrixSum = new int[matrixOneSize, matrixOneSize];
+
+                for (int row = 0; row < matrixOneSize; row++)
+                {
+                    for (int column = 0; column < matrixOneSize; column++)
+                    {
+                        MatrixSum[row, column] = matrixOne[row, column] + matrixTwo[row, column];
+
+                        Console.Write(MatrixSum[row, column] + " ");
+                    }
+                    Console.WriteLine();
                 }
             }
 
-            int[,] MatrixSum = new int[matrixOne.Length, matrixOne.Length];
-            for (int row = 0; row < matrixOne.Length; row++)
-            {
-                for (int column = 0; column < matrixOne.Length; column++)
-                {
-                    MatrixSum[row, column] = matrixOne[row, column] + matrixTwo[row, column];
-                }
-            }
-            return MatrixSum;
         }
         
     }

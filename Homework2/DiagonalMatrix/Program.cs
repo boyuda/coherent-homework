@@ -6,8 +6,8 @@ namespace DiagonalMatrix
     {
         static void Main(string[] args)
         {
-            var diagonalNumbers = new Matrix(1, 2, 3, 4, 5);
-            var diagonalNumbers2 = new Matrix(1, 2, 3, 4, 5);
+            var diagonalNumbers = new Matrix(1, 2,3,4);
+            var diagonalNumbers2 = new Matrix(1, 2, 3,4);
 
 
             diagonalNumbers.Track();
@@ -21,24 +21,18 @@ namespace DiagonalMatrix
             Console.WriteLine(diagonalNumbers.Equals(diagonalNumbers2));
             Console.WriteLine(diagonalNumbers.ToString(diagonalNumbers2));
             Console.WriteLine("Size is {0}", diagonalNumbers.Size);
+            var number = diagonalNumbers.DiagonalMatrix.GetLength(1);
+            Console.WriteLine("Number is {0}", number);
 
 
            // int[,] DiagonalMatrix = new int[5, 5];
             //DiagonalMatrix.Tracker(diagonalNumbers2);
 
             Matrix.Equals(diagonalNumbers2, diagonalNumbers);
-           var resultasvienas = Matrix.SumOfMatrix(diagonalNumbers.DiagonalMatrix, diagonalNumbers2.DiagonalMatrix);
 
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    Console.Write(resultasvienas[i, j] + " ");
-                }
-
-                Console.WriteLine();
-            }
-
+            Matrix.SumOfMatrix(diagonalNumbers.DiagonalMatrix, diagonalNumbers2.DiagonalMatrix);
+            
+            
 
         }
     }
