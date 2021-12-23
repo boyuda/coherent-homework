@@ -10,10 +10,11 @@ namespace DiagonalMatrix
     {
         public int[] DiagonalNumbers { get; set; }
         public int Size { get; private set; }
+        int[,] DiagonalMatrix { get; set; }
 
-        //Passing list of parameters to the constructor and creating size of an array;
         public Matrix(params int[] diagonalNumbers)
         {
+            //Storing numbers in one-dimmensional array and applying Size for the Matrix
             this.DiagonalNumbers = diagonalNumbers;
 
             if (diagonalNumbers == null)
@@ -26,29 +27,40 @@ namespace DiagonalMatrix
                 {
                     Size++;
                 }
-            }
 
+                //Creating Matrix with Diagonal Numbers   
+                int[,] DiagonalMatrix = new int[Size, Size];
 
-        }
-
-        //Creating empty Matrix and assigning diagonal values to it
-        public int[,] CreateDiagonalMatrix()
-        {
-            int[,] DiagonalMatrix = new int[Size, Size];
-            for (int row = 0; row < Size; row++)
-            {
-                for (int column = 0; column < Size; column++)
+                for (int row = 0; row < Size; row++)
                 {
-                    if (row == column)
+                    for (int column = 0; column < Size; column++)
                     {
-                        DiagonalMatrix[row, column] = DiagonalNumbers[row];
-
+                        if (row == column)
+                        {
+                            DiagonalMatrix[row, column] = DiagonalNumbers[row];
+                        }
                     }
                 }
+                this.DiagonalMatrix = DiagonalMatrix;
 
-            }
-            return DiagonalMatrix;
+            }   
+
         }
+
+        //Displays Matrix -- For testing purposes. 
+        public void print()
+        {
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    Console.Write(DiagonalMatrix[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
 
 
 
