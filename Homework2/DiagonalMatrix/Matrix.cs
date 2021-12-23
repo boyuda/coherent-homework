@@ -10,7 +10,8 @@ namespace DiagonalMatrix
     {
         public int[] DiagonalNumbers { get; set; }
         public int Size { get; private set; }
-        int[,] DiagonalMatrix { get; set; }
+        public int[,] DiagonalMatrix { get; set; }
+
 
         public Matrix(params int[] diagonalNumbers)
         {
@@ -126,6 +127,44 @@ namespace DiagonalMatrix
 
         }
 
+
+
+       
+        //Adding extension method to sum up two matrixes
+        public static int[,] SumOfMatrix(int[,] matrixOne, int[,] matrixTwo)
+        {
+            if (matrixOne.Length < matrixTwo.Length)
+            {
+                for (int row = 0; row < matrixOne.Length; row++)
+                {
+                    for (int column = 0; column < matrixOne.Length; column++)
+                    {
+                        matrixOne[row, column] = 0;
+                    }
+                }
+            } 
+            else if (matrixTwo.Length>matrixOne.Length)
+            {
+                for (int row = 0; row < matrixOne.Length; row++)
+                {
+                    for (int column = 0; column < matrixOne.Length; column++)
+                    {
+                        matrixTwo[row, column] = 0;
+                    }
+                }
+            }
+
+            int[,] MatrixSum = new int[matrixOne.Length, matrixOne.Length];
+            for (int row = 0; row < matrixOne.Length; row++)
+            {
+                for (int column = 0; column < matrixOne.Length; column++)
+                {
+                    MatrixSum[row, column] = matrixOne[row, column] + matrixTwo[row, column];
+                }
+            }
+            return MatrixSum;
+        }
+        
     }
 
 }
