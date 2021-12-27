@@ -4,35 +4,23 @@ namespace DiagonalMatrix
 {
     class Program
     {
+        //Starting point
         static void Main(string[] args)
         {
-            var diagonalNumbers = new Matrix(1, 2,3,4);
-            var diagonalNumbers2 = new Matrix(1, 2, 3,4);
 
+            //Creating two diagonal matrixes
+            var firstMatrix = new Matrix(1, 2, 3, 4, 5);
+            var secondMatrix = new Matrix(1, 2, 3, 4, 5);
 
-            diagonalNumbers.Track();
+            //Sum of diagonal numbers
+            firstMatrix.Track();
 
-            //Testing function to display Matrix on the console
+            //Equal and ToString Override
+            Matrix.Equals(firstMatrix, secondMatrix);
+            firstMatrix.ToString(secondMatrix);
 
-            diagonalNumbers.print();
-
-
-            //Testing equals
-            Console.WriteLine(diagonalNumbers.Equals(diagonalNumbers2));
-            Console.WriteLine(diagonalNumbers.ToString(diagonalNumbers2));
-            Console.WriteLine("Size is {0}", diagonalNumbers.Size);
-            var number = diagonalNumbers.DiagonalMatrix.GetLength(1);
-            Console.WriteLine("Number is {0}", number);
-
-
-           // int[,] DiagonalMatrix = new int[5, 5];
-            //DiagonalMatrix.Tracker(diagonalNumbers2);
-
-            Matrix.Equals(diagonalNumbers2, diagonalNumbers);
-
-            Matrix.SumOfMatrix(diagonalNumbers.DiagonalMatrix, diagonalNumbers2.DiagonalMatrix);
-            
-            
+            //Diagonal Matrix extension
+            firstMatrix.DiagonalMatrix.DiagonalMatrixSum(secondMatrix.DiagonalMatrix);
 
         }
     }
