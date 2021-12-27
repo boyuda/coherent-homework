@@ -9,8 +9,8 @@ namespace DiagonalMatrix
         {
 
             //Creating two diagonal matrixes
-            var firstMatrix = new Matrix(1, 2, 3, 4, 5);
-            var secondMatrix = new Matrix(1, 2, 3, 4, 5);
+            var firstMatrix = new Matrix(1, 5, 3, 9, 5);
+            var secondMatrix = new Matrix(1, 7, 8, 4, 5);
 
             //Sum of diagonal numbers
             firstMatrix.Track();

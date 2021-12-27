@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiagonalMatrix
 {
@@ -22,10 +18,7 @@ namespace DiagonalMatrix
                     for (int column = 0; column < matrixTwoSize; column++)
                     {
                         MatrixSum[row, column] += matrixTwo[row, column];
-
-                        Console.Write(MatrixSum[row, column] + " ");
                     }
-                    Console.WriteLine();
                 }
             }
             else if (matrixOneSize > matrixTwoSize)
@@ -37,10 +30,7 @@ namespace DiagonalMatrix
                     for (int column = 0; column < matrixOneSize; column++)
                     {
                         MatrixSum[row, column] += matrixOne[row, column];
-
-                        Console.Write(MatrixSum[row, column] + " ");
                     }
-                    Console.WriteLine();
                 }
             }
             else
@@ -52,10 +42,7 @@ namespace DiagonalMatrix
                     for (int column = 0; column < matrixOneSize; column++)
                     {
                         MatrixSum[row, column] = matrixOne[row, column] + matrixTwo[row, column];
-
-                        Console.Write(MatrixSum[row, column] + " ");
                     }
-                    Console.WriteLine();
                 }
             }
 

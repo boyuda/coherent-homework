@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiagonalMatrix
 {
@@ -48,24 +44,6 @@ namespace DiagonalMatrix
 
         }
 
-        //Displays Matrix -- For testing purposes. 
-        public void print()
-        {
-            for (int i = 0; i < Size; i++)
-            {
-                for (int j = 0; j < Size; j++)
-                {
-                    Console.Write(DiagonalMatrix[i, j] + " ");
-                }
-
-                Console.WriteLine();
-            }
-        }
-
-
-
-
-
         //Calculating the sum of the diagonal numbers
         public int Track()
         {
@@ -93,13 +71,10 @@ namespace DiagonalMatrix
                     {
                         return false;
                     }
-
                 }
                 return true;
             }
-
             return false;
-
         }
 
         //Adding ToString Overload to compare 2 matrixes
@@ -118,13 +93,10 @@ namespace DiagonalMatrix
                     {
                         return "False";
                     }
-
                 }
                 return "True";
             }
-
             return "False";
-
         }
         
     }
