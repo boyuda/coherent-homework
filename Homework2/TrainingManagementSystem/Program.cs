@@ -22,6 +22,13 @@ namespace TrainingManagementSystem
 
             var practicalLessonTwo = new PracticalLesson("Test Condition", "Test Solution");
 
+            string test = Convert.ToString(practicalLessonOne.ToString());
+            Console.WriteLine(test);
+
+            var trainingOne = new Training("TestOne", "TestTwo");
+            trainingOne.Add(lectureTwo, practicalLessonTwo);
+           // trainingOne.Print();
+            
 
         }
     }
