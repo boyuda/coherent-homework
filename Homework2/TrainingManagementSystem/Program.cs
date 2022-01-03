@@ -24,7 +24,7 @@ namespace TrainingManagementSystem
 
             //Performing firstTraining deep cloone
             Training secondTraining = (Training)firstTraining.Clone();
-            firstTraining.ArrayOfTraining[0] = "Changing this value to test clone";
+            firstTraining.ArrayOfTraining[0] = "Changing this value to test deep clone";
 
             //printing results
             secondTraining.Print();
