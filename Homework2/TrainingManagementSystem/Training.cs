@@ -8,53 +8,47 @@ namespace TrainingManagementSystem
 {
     class Training
     {
-        public string TrainingName { get; set; }
         public string TextDescription { get; set; } = "";
 
-        public static object[][] ArrayOfTrainings = new object[1][];
+        public string[] ArrayOfTraining = new string[5];
 
-        private static int PositionInArray { get; set; }
 
-        public Training (string trainingName, string textDescription)
+
+        public void Add (Lecture lecture, PracticalLesson lesson)
         {
-            this.TrainingName = trainingName;
-            this.TextDescription = textDescription;
-        }
-
-        //Adding objects to the JaggedArray
-        public void Add(object lectures, object practicalLesson)
-        {
-            ArrayOfTrainings[PositionInArray] = new object[] { lectures, practicalLesson };
-            PositionInArray++;
-        }
-
-        public void Add(object lectures)
-        {
-            ArrayOfTrainings[PositionInArray] = new object[] { lectures, null };
-            PositionInArray++;
+            ArrayOfTraining[0] = lecture.Topic.ToString();
+            ArrayOfTraining[1] = lecture.TextDescription.ToString();
+            ArrayOfTraining[2] = lesson.TaskCondition.ToString();
+            ArrayOfTraining[3] = lesson.TaskSolution.ToString();
+            ArrayOfTraining[4] = lesson.TextDescription.ToString();
         }
 
 
 
         public void Print()
         {
-            string lol =  Convert.ToString(ArrayOfTrainings[0][1]);
-            Console.WriteLine(lol.ToString());
+            Console.WriteLine(@"
+            Training Description: {0}
+            Lecture Topic: {1}
+            Lecture Description: {2}
+            Practical Lesson Task Condition: {3}
+            Practical Lesson Task Solution: {4}
+            Practical Lesson Task Description: {5}
+            ", this.TextDescription, ArrayOfTraining[0], ArrayOfTraining[1], ArrayOfTraining[2], ArrayOfTraining[3], ArrayOfTraining[4]);
         }
 
 
 
-        public void IsPractical()
+        public bool IsPractical()
         {
+            if (string.IsNullOrEmpty(ArrayOfTraining[0]) && (string.IsNullOrEmpty(ArrayOfTraining[1])))
             {
-                foreach (object[] array in ArrayOfTrainings)
-                {
-                    foreach (object value in array)
-                    {
-                        Console.WriteLine("test");
-                    }
-                }
+                return true;
+            } else
+            {
+                return false;
             }
+
         }
 
         public void Clone()
