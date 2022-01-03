@@ -11,7 +11,7 @@ namespace TrainingManagementSystem
         public string TrainingName { get; set; }
         public string TextDescription { get; set; } = "";
 
-        public static object[][] ArrayOfTrainings = new object[10][];
+        public static object[][] ArrayOfTrainings = new object[1][];
 
         private static int PositionInArray { get; set; }
 
@@ -28,7 +28,13 @@ namespace TrainingManagementSystem
             PositionInArray++;
         }
 
-        
+        public void Add(object lectures)
+        {
+            ArrayOfTrainings[PositionInArray] = new object[] { lectures, null };
+            PositionInArray++;
+        }
+
+
 
         public void Print()
         {
@@ -40,7 +46,15 @@ namespace TrainingManagementSystem
 
         public void IsPractical()
         {
-            //do something
+            {
+                foreach (object[] array in ArrayOfTrainings)
+                {
+                    foreach (object value in array)
+                    {
+                        Console.WriteLine("test");
+                    }
+                }
+            }
         }
 
         public void Clone()
