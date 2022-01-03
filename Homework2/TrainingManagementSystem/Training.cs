@@ -9,7 +9,7 @@ namespace TrainingManagementSystem
     class Training
     {
         public string TrainingName { get; set; }
-        public string TextDescription { get; set; }
+        public string TextDescription { get; set; } = "";
 
         public static object[][] ArrayOfTrainings = new object[10][];
 
