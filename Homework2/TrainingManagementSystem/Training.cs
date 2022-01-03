@@ -13,7 +13,7 @@ namespace TrainingManagementSystem
         public string[] ArrayOfTraining = new string[5];
 
 
-
+        //Method to populate array
         public void Add (Lecture lecture, PracticalLesson lesson)
         {
             ArrayOfTraining[0] = lecture.Topic.ToString();
@@ -23,8 +23,18 @@ namespace TrainingManagementSystem
             ArrayOfTraining[4] = lesson.TextDescription.ToString();
         }
 
+        //Add method overload
+        public void Add(PracticalLesson lesson)
+        {
+            ArrayOfTraining[0] = "";
+            ArrayOfTraining[1] = "";
+            ArrayOfTraining[2] = lesson.TaskCondition.ToString();
+            ArrayOfTraining[3] = lesson.TaskSolution.ToString();
+            ArrayOfTraining[4] = lesson.TextDescription.ToString();
+        }
 
 
+        //Mthod to display info on the console (for testing purposes)
         public void Print()
         {
             Console.WriteLine(@"
@@ -38,7 +48,7 @@ namespace TrainingManagementSystem
         }
 
 
-
+        //returns true if the training contains only practical lessons
         public bool IsPractical()
         {
             if (string.IsNullOrEmpty(ArrayOfTraining[0]) && (string.IsNullOrEmpty(ArrayOfTraining[1])))
@@ -51,9 +61,17 @@ namespace TrainingManagementSystem
 
         }
 
-        public void Clone()
+        public Training Clone()
         {
-            //do something
+            Training deepClone = new Training();
+            deepClone.TextDescription = this.TextDescription;
+            deepClone.ArrayOfTraining[0] = this.ArrayOfTraining[0];
+            deepClone.ArrayOfTraining[1] = this.ArrayOfTraining[1];
+            deepClone.ArrayOfTraining[2] = this.ArrayOfTraining[2];
+            deepClone.ArrayOfTraining[3] = this.ArrayOfTraining[3];
+            deepClone.ArrayOfTraining[4] = this.ArrayOfTraining[4];
+
+            return deepClone;
         }
 
 
