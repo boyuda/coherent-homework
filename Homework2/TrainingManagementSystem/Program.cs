@@ -19,12 +19,10 @@ namespace TrainingManagementSystem
             firstLesson.TextDescription = "Prepare kids for running marathon";
 
             var firstTraining = new Training();
-
             firstTraining.Add(firstLecture, firstLesson);
 
-            //Performing firstTraining deep cloone
-            Training secondTraining = (Training)firstTraining.Clone();
-            firstTraining.ArrayOfTraining[0] = "Changing this value to test deep clone";
+            //firstTraining deep cloone
+            var secondTraining = firstTraining.Clone();
 
             //printing results
             secondTraining.Print();

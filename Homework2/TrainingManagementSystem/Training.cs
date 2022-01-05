@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TrainingManagementSystem
 {
@@ -11,7 +8,6 @@ namespace TrainingManagementSystem
         public string TextDescription { get; set; } = "";
 
         public string[] ArrayOfTraining = new string[5];
-
 
         //Method to populate array
         public void Add (Lecture lecture, PracticalLesson lesson)
@@ -33,8 +29,7 @@ namespace TrainingManagementSystem
             ArrayOfTraining[4] = lesson.TextDescription.ToString();
         }
 
-
-        //Mthod to display info on the console (for testing purposes)
+        //Method to display info on the console (for testing purposes)
         public void Print()
         {
             Console.WriteLine(@"
@@ -46,7 +41,6 @@ namespace TrainingManagementSystem
             Practical Lesson Task Description: {5}
             ", this.TextDescription, ArrayOfTraining[0], ArrayOfTraining[1], ArrayOfTraining[2], ArrayOfTraining[3], ArrayOfTraining[4]);
         }
-
 
         //returns true if the training contains only practical lessons
         public bool IsPractical()
@@ -61,19 +55,19 @@ namespace TrainingManagementSystem
 
         }
 
+        // Method for deep clone
         public Training Clone()
         {
-            Training deepClone = new Training();
+            var deepClone = new Training();
             deepClone.TextDescription = this.TextDescription;
-            deepClone.ArrayOfTraining[0] = this.ArrayOfTraining[0];
-            deepClone.ArrayOfTraining[1] = this.ArrayOfTraining[1];
-            deepClone.ArrayOfTraining[2] = this.ArrayOfTraining[2];
-            deepClone.ArrayOfTraining[3] = this.ArrayOfTraining[3];
-            deepClone.ArrayOfTraining[4] = this.ArrayOfTraining[4];
+
+            for (int i = 0; i < ArrayOfTraining.Length; i++)
+            {
+                deepClone.ArrayOfTraining[i] = this.ArrayOfTraining[i];
+            }
 
             return deepClone;
         }
-
 
     }
 }
