@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace TrainingManagementSystem
 {
     class PracticalLesson
