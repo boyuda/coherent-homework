@@ -1,12 +1,11 @@
-﻿using System;
-
+﻿
 
 namespace TrainingManagementSystem
 {
-    class Lecture
+    class Lecture : LessonBase
     {
-        public string TextDescription { get; set; } = "";
         public string Topic { get; set; } = "";
+        public Lecture Test { get; set; }
 
     }
 }
