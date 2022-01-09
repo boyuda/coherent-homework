@@ -4,7 +4,7 @@ namespace DiagonalMatrix
 {
     class Matrix
     {
-        public int[] DiagonalNumbers { get; set; }
+        private int[] DiagonalNumbers { get; set; }
         public int Size { get; private set; }
         public int[,] DiagonalMatrix { get; set; }
 
