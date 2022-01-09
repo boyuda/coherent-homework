@@ -8,6 +8,26 @@ namespace DiagonalMatrix
         public int Size { get; private set; }
         public int[,] DiagonalMatrix { get; set; }
 
+        //Adding Indexer
+        public int this [int i, int j]
+        {
+            get
+            {
+                return DiagonalMatrix[i, j];
+            }
+
+            set
+            {
+                if (i!=j || i<0 || j<0 || i>=Size || j>=Size)
+                {
+                    value = 0;
+                } else
+                {
+                    DiagonalMatrix[i, j] = value;
+                }
+            }
+        }
+
 
         public Matrix(params int[] diagonalNumbers)
         {
@@ -22,7 +42,7 @@ namespace DiagonalMatrix
             {
                 Size = diagonalNumbers.Length;
 
-                //Creating Matrix with Diagonal Numbers   
+                ////Creating Matrix with Diagonal Numbers   
                 int[,] DiagonalMatrix = new int[Size, Size];
 
                 for (int row = 0; row < Size; row++)
