@@ -4,7 +4,7 @@ namespace DiagonalMatrix
 {
     class Matrix
     {
-        private int[] DiagonalNumbers { get; set; }
+        private int[] diagonalNumbers { get; set; }
         public int Size { get; private set; }
         public int[,] DiagonalMatrix { get; set; }
 
@@ -12,7 +12,7 @@ namespace DiagonalMatrix
         public Matrix(params int[] diagonalNumbers)
         {
             //Storing numbers in one-dimmensional array and applying Size for the Matrix
-            this.DiagonalNumbers = diagonalNumbers;
+            this.diagonalNumbers = diagonalNumbers;
 
             if (diagonalNumbers == null)
             {
@@ -31,7 +31,7 @@ namespace DiagonalMatrix
                     {
                         if (row == column)
                         {
-                            DiagonalMatrix[row, column] = DiagonalNumbers[row];
+                            DiagonalMatrix[row, column] = diagonalNumbers[row];
                         }
                     }
                 }
@@ -45,7 +45,7 @@ namespace DiagonalMatrix
         public int Track()
         {
             var sum = 0;
-            foreach (var number in DiagonalNumbers)
+            foreach (var number in diagonalNumbers)
             {
                 sum += number;
             }
@@ -60,7 +60,7 @@ namespace DiagonalMatrix
             {
                 for (int i = 0; i < Size; i++)
                 {
-                    if (DiagonalNumbers[i] == ((Matrix)obj).DiagonalNumbers[i])
+                    if (diagonalNumbers[i] == ((Matrix)obj).diagonalNumbers[i])
                     {
                         continue;   
                     } 
@@ -82,7 +82,7 @@ namespace DiagonalMatrix
             {
                 for (int i = 0; i < Size; i++)
                 {
-                    if (DiagonalNumbers[i] == ((Matrix)obj).DiagonalNumbers[i])
+                    if (diagonalNumbers[i] == ((Matrix)obj).diagonalNumbers[i])
                     {
                         continue;
                     }
