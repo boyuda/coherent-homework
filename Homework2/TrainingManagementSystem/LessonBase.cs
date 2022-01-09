@@ -8,6 +8,6 @@ namespace TrainingManagementSystem
 {
     class LessonBase
     {
-        public string Description { get; set; }
+        public string Description { get; set; } = "";
     }
 }

@@ -12,7 +12,6 @@ namespace TrainingManagementSystem
             var firstLecture = new Lecture();
             firstLecture.Topic = "Running";
             firstLecture.Description = "Running in 2022";
-            firstLecture.Test = "dwada";
 
 
             var firstLesson = new PracticalLesson();
@@ -32,9 +31,6 @@ namespace TrainingManagementSystem
             //printing results
             secondTraining.Print();
             firstTraining.Print();
-
-
-
 
         }
     }
