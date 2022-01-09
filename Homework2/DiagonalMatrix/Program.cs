@@ -21,7 +21,8 @@ namespace DiagonalMatrix
             firstMatrix.ToString(secondMatrix);
 
             //Diagonal Matrix extension
-            firstMatrix.DiagonalMatrix.DiagonalMatrixSum(secondMatrix.DiagonalMatrix);
+          //  firstMatrix.DiagonalMatrix.DiagonalMatrixSum(secondMatrix.DiagonalMatrix);
+           firstMatrix.DiagonalMatrixSum(secondMatrix);
 
         }
     }

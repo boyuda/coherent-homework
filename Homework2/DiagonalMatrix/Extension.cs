@@ -4,10 +4,10 @@ namespace DiagonalMatrix
 {
     public static class Extension
     {
-        public static void DiagonalMatrixSum(this int[,] matrixOne, int[,] matrixTwo)
+        public static void DiagonalMatrixSum(this Matrix matrixOne, Matrix matrixTwo)
         {
-            var matrixOneSize = matrixOne.GetLength(1);
-            var matrixTwoSize = matrixTwo.GetLength(1);
+            var matrixOneSize = matrixOne.Size;
+            var matrixTwoSize = matrixTwo.Size;
 
             if (matrixOneSize < matrixTwoSize)
             {

@@ -2,7 +2,7 @@
 
 namespace DiagonalMatrix
 {
-    class Matrix
+    public class Matrix
     {
         private int[] diagonalNumbers { get; set; }
         public int Size { get; private set; }
