@@ -20,10 +20,7 @@ namespace DiagonalMatrix
             }
             else
             {
-                foreach (var n in diagonalNumbers)
-                {
-                    Size++;
-                }
+                Size = diagonalNumbers.Length;
 
                 //Creating Matrix with Diagonal Numbers   
                 int[,] DiagonalMatrix = new int[Size, Size];
