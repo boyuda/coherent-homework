@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace TrainingManagementSystem
@@ -6,30 +7,26 @@ namespace TrainingManagementSystem
     class Training
     {
 
-        private LessonBase[] trainings = new LessonBase[2];
-
         public string Description { get; set; } = "";
 
-        //Method to populate array
-        public void Add (Lecture lecture, PracticalLesson lesson)
-        {
-            trainings[0] = lecture;
-            trainings[1] = lesson;
-        }
+        private int trainingsIndex = 0;
+        private const int LessonsMaxCount = 10;
+        private LessonBase[] trainings = new LessonBase[LessonsMaxCount];
 
-        //Add method overload
-        public void Add(PracticalLesson lesson)
-        {
-            trainings[1] = lesson;
-        }
 
-        //Add method overload
-        public void Add(LessonBase description)
+        //Add method 
+        public void Add(LessonBase lesson)
         {
-            Description = description.ToString();
+            if (trainingsIndex == LessonsMaxCount)
+            {
+                throw new IndexOutOfRangeException ("Lessons count exceeded allowed value.");
+            }
+            trainings[trainingsIndex++] = lesson;
         }
 
         //Method to display info on the console (for testing purposes)
+
+        
         public void Print()
         {
             Console.WriteLine(Description);
@@ -42,25 +39,19 @@ namespace TrainingManagementSystem
                 }
             }
         }
+        
 
         //returns true if the training contains only practical lessons
-        public bool IsPractical()
+        public void IsPractical()
         {
-            if (trainings[0] == null)
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
-
+            trainings.Any(item => item is PracticalLesson);
         }
 
         // Method for deep clone
         public Training Clone()
         {
+
             var deepClone = new Training();
-            deepClone.Description = this.Description;
 
             for (int i = 0; i < trainings.Length; i++)
             {

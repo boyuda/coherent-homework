@@ -4,6 +4,12 @@ namespace TrainingManagementSystem
 {
     class Lecture : LessonBase
     {
-        public string Topic { get; set; } = "";
+        protected string Topic { get; set; } = "";
+
+        
+        public Lecture(string _topic)
+        {
+            Topic = _topic;
+        }
     }
 }

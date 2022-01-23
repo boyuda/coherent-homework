@@ -9,27 +9,24 @@ namespace TrainingManagementSystem
         {
 
             //Creating first training with lecture and practical lesson
-            var firstLecture = new Lecture();
-            firstLecture.Topic = "Running";
-            firstLecture.Description = "Running in 2022";
-
-            var firstLesson = new PracticalLesson();
-            firstLesson.TaskCondition = "Have 5 years of experience in running";
-            firstLesson.TaskSolution = "Have good running sneakers";
-            firstLesson.Description = "Prepare kids for running marathon";
+            LessonBase firstLecture = new Lecture("Running");
+            LessonBase firstLesson = new PracticalLesson("Have 5 years of experience in running", "Have good running sneakers", "Prepare kids for running marathon");
+            firstLecture.Description = "Interesting";
 
             var firstTraining = new Training();
             firstTraining.Description = "Training consist of running lecture and lesson";
-            firstTraining.Add(firstLecture, firstLesson);
+            firstTraining.Add(firstLesson);
+            firstTraining.Add(firstLecture);
+
 
             //firstTraining deep cloone
             var secondTraining = firstTraining.Clone();
-
-
+            firstLecture.Description = "test";
+            
             //printing results
-            secondTraining.Print();
             firstTraining.Print();
-
+            secondTraining.Print();
+        
         }
     }
 }
