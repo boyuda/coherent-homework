@@ -1,4 +1,5 @@
 ﻿using System;
+using static Piano.Key;
 
 namespace Piano
 {
@@ -6,7 +7,14 @@ namespace Piano
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // C# of the first octave
+            Key c = new (Note.C, Accidental.Sharp, Octave.First);
+            Console.WriteLine(c); // C# (1)
+
+            // D flat of the first octave
+            Key d = new Key(Note.D, Accidental.Flat, Octave.First);
+
+
         }
     }
 }
