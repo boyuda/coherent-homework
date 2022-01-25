@@ -44,7 +44,21 @@ namespace Piano
 
         public override string ToString()
         {
-            return note + "" + accidental + " " + $"({(int)octave})" ;
+            var accidentalSymbol = "";
+
+            if (accidental == Accidental.Sharp)
+            {
+                accidentalSymbol = "#";
+            } 
+            else if (accidental == Accidental.Flat)
+            {
+                accidentalSymbol = "b";
+            } else
+            {
+                accidentalSymbol = "";
+            }
+
+            return note + "" + accidentalSymbol + " " + $"({(int)octave})" ;
         }
     }
 }
