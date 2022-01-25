@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Piano
 {
     class Key:IComparable
     {
-        public Note note { get; private set; }
-        public Accidental accidental { get; private set; }
-        public Octave octave{ get; private set; }
+        public Note KeyNote { get; private set; }
+        public Accidental KeyAccidental { get; private set; }
+        public Octave KeyOctave{ get; private set; }
 
         public Key(Note note, Accidental accidental, Octave octave)
         {
-            this.note = note;
-            this.accidental = accidental;
-            this.octave = octave;
+            this.KeyNote = note;
+            this.KeyAccidental = accidental;
+            this.KeyOctave = octave;
         }
 
+        //Creating enums for notes, accidentals and octaves
         public enum Note
         {
             A,B,C,D,E,F,G
@@ -42,15 +39,16 @@ namespace Piano
             Seventh = 7
         }
 
+        //Overriding ToString
         public override string ToString()
         {
             var accidentalSymbol = "";
 
-            if (accidental == Accidental.Sharp)
+            if (KeyAccidental == Accidental.Sharp)
             {
                 accidentalSymbol = "#";
             } 
-            else if (accidental == Accidental.Flat)
+            else if (KeyAccidental == Accidental.Flat)
             {
                 accidentalSymbol = "b";
             } else
@@ -58,15 +56,52 @@ namespace Piano
                 accidentalSymbol = "";
             }
 
-            return note + "" + accidentalSymbol + " " + $"({(int)octave})" ;
+            return KeyNote + "" + accidentalSymbol + " " + $"({(int)KeyOctave})" ;
         }
+
+        //Overriding Equals. Addind logic to compare. 
+        public override bool Equals(object obj)
+        {
+            Key otherKey = obj as Key;
+
+            if (
+
+                (this.KeyOctave == otherKey.KeyOctave) &&
+
+                (this.KeyNote == Note.C && this.KeyAccidental == Accidental.Sharp) &&
+                (otherKey.KeyNote == Note.D && otherKey.KeyAccidental == Accidental.Flat) ||
+
+
+                (this.KeyNote == Note.D && this.KeyAccidental == Accidental.Sharp) &&
+                (otherKey.KeyNote == Note.E && otherKey.KeyAccidental == Accidental.Flat) ||
+
+
+                (this.KeyNote == Note.F && this.KeyAccidental == Accidental.Sharp) &&
+                (otherKey.KeyNote == Note.G && otherKey.KeyAccidental == Accidental.Flat) ||
+
+
+                (this.KeyNote == Note.G && this.KeyAccidental == Accidental.Sharp) &&
+                (otherKey.KeyNote == Note.A && otherKey.KeyAccidental == Accidental.Flat) ||
+
+
+                (this.KeyNote == Note.A && this.KeyAccidental == Accidental.Sharp) &&
+                (otherKey.KeyNote == Note.B && otherKey.KeyAccidental == Accidental.Flat))
+            {
+                return true;
+            } 
+            else
+            {
+                return false;
+            }
+        }
+
 
         //Comparing Octave propery 
         public int CompareTo(object obj)
         {
             Key otherKey = obj as Key;
 
-            if (this.octave == otherKey.octave)
+            if (this.KeyOctave == otherKey.KeyOctave)
             {
                 return 1;
             } else
