@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Piano
 {
-    struct Key
+    class Key:IComparable
     {
         public Note note { get; private set; }
         public Accidental accidental { get; private set; }
@@ -59,6 +59,20 @@ namespace Piano
             }
 
             return note + "" + accidentalSymbol + " " + $"({(int)octave})" ;
+        }
+
+        //Comparing Octave propery 
+        public int CompareTo(object obj)
+        {
+            Key otherKey = obj as Key;
+
+            if (this.octave == otherKey.octave)
+            {
+                return 1;
+            } else
+            {
+                return 0;
+            }
         }
     }
 }

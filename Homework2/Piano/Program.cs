@@ -14,6 +14,7 @@ namespace Piano
             // D flat of the first octave
             Key d = new Key(Note.D, Accidental.Flat, Octave.First);
 
+            Console.WriteLine(c.CompareTo(d));
 
         }
     }
