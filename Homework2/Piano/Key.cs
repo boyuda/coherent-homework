@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace Piano
 {
-    class Key:IComparable
+    class Key : IComparable<Key>
     {
         public Note KeyNote { get; private set; }
         public Accidental KeyAccidental { get; private set; }
@@ -97,7 +97,7 @@ namespace Piano
 
 
         //Comparing Octave propery 
-        public int CompareTo(object obj)
+        public int CompareTo(Key obj)
         {
             Key otherKey = obj as Key;
 
