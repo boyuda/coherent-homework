@@ -62,10 +62,17 @@ namespace Piano
         //Overriding Equals. Addind logic to compare. 
         public override bool Equals(object obj)
         {
+
+            if (obj == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             Key otherKey = obj as Key;
 
             if (
 
+                otherKey is Key &&
                 (this.KeyOctave == otherKey.KeyOctave) &&
 
                 (this.KeyNote == Note.C && this.KeyAccidental == Accidental.Sharp) &&
