@@ -15,9 +15,9 @@ namespace TrainingManagementSystem
 
         public override PracticalLesson Clone()
         {
-            var clonedLecture = new PracticalLesson(this.TaskCondition, this.TaskSolution);
-            clonedLecture.Description = this.Description;
-            return clonedLecture;
+            var clonedLesson = new PracticalLesson(this.TaskCondition, this.TaskSolution);
+            clonedLesson.Description = this.Description;
+            return clonedLesson;
         }
     }
 }
