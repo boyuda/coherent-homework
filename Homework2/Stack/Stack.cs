@@ -10,8 +10,7 @@ namespace Stack
     {
         public int Size { get; set; }
         private T[] stackArray;
-        public bool isFull { get; set; } = true;
-        public int CurrentPosition { get; set; }
+        public int NextPosition { get; set; }
 
 
         public Stack()
@@ -25,38 +24,52 @@ namespace Stack
             if (Size == 0) 
                 return true;
             else
-            return false;
+                return false;
         }
 
-        public void Pop()
+        public T Pop()
         {
-            throw new NotImplementedException();
+            if (Size == 0)
+            {
+                throw new Exception("Array is empty");
+            }
+
+            var next = stackArray.Count() - 1;
+            var lastElement = stackArray[next];
+            ArrayDecrease();
+            return lastElement;
         }
 
         public void Push(T obj)
         {
             if(obj==null)
             {
-                throw new ArgumentNullException();
+                throw new Exception("Argument cannot be null");
             }
 
-            if(isFull == true)
-            {
-                ArrayGrow();
-            }
+            ArrayIncrease();
 
-            stackArray[CurrentPosition] = obj;
-            CurrentPosition++;
-            isFull = true;
+            stackArray[NextPosition] = obj;
+            NextPosition++;
         }
 
-        public void ArrayGrow()
+        private void ArrayIncrease()
         {
             Size++;
             T[] newArray = new T[Size];
-            Array.Copy(stackArray, newArray, CurrentPosition);
+            Array.Copy(stackArray, newArray, NextPosition);
             stackArray = newArray; 
-            isFull = false;
         }
+
+        private void ArrayDecrease()
+        {
+            Size--;
+            NextPosition--;
+
+            T[] newArray = new T[Size];
+            Array.Copy(stackArray, newArray, NextPosition);
+            stackArray = newArray;
+        }
+
     }
 }

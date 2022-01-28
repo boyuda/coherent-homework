@@ -10,7 +10,7 @@ namespace Stack
     {
         public void Push(T obj);
 
-        public void Pop();
+        public T Pop();
 
         public bool IsEmpty();
     }
