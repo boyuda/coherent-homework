@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    class Stack<T> : IStack<T>
+     class Stack<T> : IStack<T>
     {
-        public int Size { get; set; }
-        private T[] stackArray;
-        public int NextPosition { get; set; }
+        public int Size { get; private set; }
+        public T[] stackArray { get; private set; }
+        public int NextPosition { get; private set; }
 
 
         public Stack()
@@ -19,6 +19,7 @@ namespace Stack
         }
 
 
+        //Checking the stack for emptiness
         public bool IsEmpty()
         {
             if (Size == 0) 
@@ -27,6 +28,7 @@ namespace Stack
                 return false;
         }
 
+        //Remove and return the last inserted element
         public T Pop()
         {
             if (Size == 0)
@@ -40,6 +42,7 @@ namespace Stack
             return lastElement;
         }
 
+        //Pushing an item onto the stack
         public void Push(T obj)
         {
             if(obj==null)
@@ -53,6 +56,8 @@ namespace Stack
             NextPosition++;
         }
 
+
+        //Methods to dynamicaly increase/decrease array
         private void ArrayIncrease()
         {
             Size++;

@@ -13,5 +13,7 @@ namespace Stack
         public T Pop();
 
         public bool IsEmpty();
+
+
     }
 }

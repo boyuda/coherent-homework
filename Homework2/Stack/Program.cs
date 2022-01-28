@@ -12,8 +12,6 @@ namespace Stack
 
             stackOne.Push(1);
             stackOne.Push(2);
-            stackOne.Pop();
-            stackOne.Pop();
             stackOne.Push(3);
             stackOne.Push(4);
             stackOne.Push(5);
@@ -22,6 +20,10 @@ namespace Stack
             stackOne.Push(8);
             stackOne.Push(9);
             stackOne.Push(10);
+
+            var stackThree = stackOne.Reverse();
+            
+            
 
 
         }
