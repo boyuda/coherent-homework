@@ -25,7 +25,6 @@ namespace TrainingManagementSystem
         }
 
         //Method to display info on the console (for testing purposes)
-
         
         public void Print()
         {
@@ -50,16 +49,13 @@ namespace TrainingManagementSystem
         // Method for deep clone
         public Training Clone()
         {
-
             var deepClone = new Training();
 
             for (int i = 0; i < trainings.Length; i++)
             {
-                deepClone.trainings[i] = this.trainings[i];
+                deepClone.trainings[i] = (LessonBase)this.trainings[i].Clone();
             }
-
             return deepClone;
         }
-
     }
 }

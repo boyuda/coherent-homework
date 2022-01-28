@@ -9,9 +9,11 @@ namespace TrainingManagementSystem
         {
 
             //Creating first training with lecture and practical lesson
-            LessonBase firstLecture = new Lecture("Running");
-            LessonBase firstLesson = new PracticalLesson("Have 5 years of experience in running", "Have good running sneakers", "Prepare kids for running marathon");
+            var firstLecture = new Lecture("Running");
+            var firstLesson = new PracticalLesson("Have 5 years of experience in running", "Have good running sneakers");
+            firstLesson.Description = "Prepare kids for running marathon";
             firstLecture.Description = "Interesting";
+            
 
             var firstTraining = new Training();
             firstTraining.Description = "Training consist of running lecture and lesson";

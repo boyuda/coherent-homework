@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    class LessonBase
+    abstract class LessonBase
     {
-        public string Description { get; set; } = "";
+        public string Description;
+        public abstract Object Clone();
 
     }
 
