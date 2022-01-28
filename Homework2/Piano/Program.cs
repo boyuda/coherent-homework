@@ -12,7 +12,7 @@ namespace Piano
             Console.WriteLine(c); // C# (1)
 
             // D flat of the first octave
-            Key d = new Key(Note.D, Accidental.Flat, Octave.First);
+            Key d = new (Note.D, Accidental.Flat, Octave.First);
 
             Console.WriteLine(c.Equals(d)); // True, is the same key!
             Console.WriteLine(c.CompareTo(d)); // 0

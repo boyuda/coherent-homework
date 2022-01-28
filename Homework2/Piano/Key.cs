@@ -103,18 +103,15 @@ namespace Piano
         }
 
 
-        //Comparing Octave propery 
+        //Added iComparable
         public int CompareTo(Key obj)
         {
-            Key otherKey = obj as Key;
-
-            if (this.KeyOctave == otherKey.KeyOctave)
+            if (obj == null || !(obj is Key))
             {
-                return 1;
-            } else
-            {
-                return 0;
+                throw new ArgumentException();
             }
+
+            return this.Equals(obj) ? 1 : 0;
         }
     }
 }
