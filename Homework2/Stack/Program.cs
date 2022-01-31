@@ -12,6 +12,7 @@ namespace Stack
 
             stackOne.Push(1);
             stackOne.Push(2);
+            stackOne.Pop();
             stackOne.Push(3);
             stackOne.Push(4);
             stackOne.Push(5);

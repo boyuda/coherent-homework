@@ -9,13 +9,13 @@ namespace Stack
      class Stack<T> : IStack<T>
     {
         public int Size { get; private set; }
-        public T[] stackArray { get; private set; }
+        public T[] StackArray { get; private set; }
         public int NextPosition { get; private set; }
 
 
         public Stack()
         {
-            stackArray = new T[Size];
+            StackArray = new T[Size];
         }
 
 
@@ -36,8 +36,8 @@ namespace Stack
                 throw new Exception("Array is empty");
             }
 
-            var next = stackArray.Count() - 1;
-            var lastElement = stackArray[next];
+            var next = StackArray.Count() - 1;
+            var lastElement = StackArray[next];
             ArrayDecrease();
             return lastElement;
         }
@@ -52,7 +52,7 @@ namespace Stack
 
             ArrayIncrease();
 
-            stackArray[NextPosition] = obj;
+            StackArray[NextPosition] = obj;
             NextPosition++;
         }
 
@@ -62,8 +62,8 @@ namespace Stack
         {
             Size++;
             T[] newArray = new T[Size];
-            Array.Copy(stackArray, newArray, NextPosition);
-            stackArray = newArray; 
+            Array.Copy(StackArray, newArray, NextPosition);
+            StackArray = newArray; 
         }
 
         private void ArrayDecrease()
@@ -72,8 +72,8 @@ namespace Stack
             NextPosition--;
 
             T[] newArray = new T[Size];
-            Array.Copy(stackArray, newArray, NextPosition);
-            stackArray = newArray;
+            Array.Copy(StackArray, newArray, NextPosition);
+            StackArray = newArray;
         }
 
     }

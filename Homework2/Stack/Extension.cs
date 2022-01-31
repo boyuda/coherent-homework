@@ -11,13 +11,13 @@ namespace Stack
         public static T[] Reverse<T>(this IStack<T> obj)
         {
             var stack = obj as Stack<T>;
-            var Size = stack.stackArray.Count();
+            var Size = stack.StackArray.Count();
             T[] newArray = new T[Size];
             int j = Size - 1;
 
             for (int i = 0; i < Size; i++)
             {
-                newArray[i] = stack.stackArray[j];
+                newArray[i] = stack.StackArray[j];
                 j--;
             }
 
