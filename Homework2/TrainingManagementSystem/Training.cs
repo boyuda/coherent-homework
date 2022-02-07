@@ -41,9 +41,13 @@ namespace TrainingManagementSystem
         
 
         //returns true if the training contains only practical lessons
-        public void IsPractical()
+        public bool IsPractical()
         {
-            trainings.Any(item => item is PracticalLesson);
+            if (trainings.Any(item => item is PracticalLesson))
+            {
+                return true;
+            }
+            else return false;
         }
 
         // Method for deep clone

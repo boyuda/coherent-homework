@@ -7,9 +7,9 @@ namespace TrainingManagementSystem
         public string Topic { get; set; } = "";
 
         
-        public Lecture(string _topic)
+        public Lecture(string topic)
         {
-            Topic = _topic;
+            Topic = topic;
         }
 
         public override Lecture Clone()

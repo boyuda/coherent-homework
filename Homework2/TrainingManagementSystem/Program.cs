@@ -28,6 +28,8 @@ namespace TrainingManagementSystem
             //printing results
             firstTraining.Print();
             secondTraining.Print();
+
+            firstTraining.IsPractical();
         
         }
     }
