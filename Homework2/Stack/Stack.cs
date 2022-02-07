@@ -35,14 +35,14 @@ namespace Stack
         //Remove and return the last inserted element
         public T Pop()
         {
-            if (Size == 0)
+            if (CurrentPosition == 0 || Size == 0 )
             {
-                throw new Exception("Array is empty");
+                return StackArray[CurrentPosition];
             }
 
             var lastElement = StackArray[CurrentPosition-1];
             CurrentPosition--;
-            return StackArray[CurrentPosition];
+            return lastElement;
         }
 
         //Pushing an item onto the stack
@@ -62,8 +62,6 @@ namespace Stack
             StackArray[CurrentPosition] = obj;
             CurrentPosition++;
 
-            // StackArray[NextPosition] = obj;
-            //  NextPosition++;
         }
 
 
@@ -74,22 +72,9 @@ namespace Stack
 
             T[] newArray = new T[Size];
 
-
             Array.Copy(StackArray, newArray, CurrentPosition);
             StackArray = newArray; 
         }
-
-        /*
-        private void ArrayDecrease()
-        {
-            Size--;
-            NextPosition--;
-
-            T[] newArray = new T[Size];
-            Array.Copy(StackArray, newArray, NextPosition);
-            StackArray = newArray;
-        }
-        */
 
     }
 }

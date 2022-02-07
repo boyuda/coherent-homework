@@ -8,20 +8,20 @@ namespace Stack
 {
      static class Extension
     {
-        public static T[] Reverse<T>(this IStack<T> obj)
+        public static Stack<T> Reverse<T>(this IStack<T> obj)
         {
-            var stack = obj as Stack<T>;
-            var Size = stack.StackArray.Count();
-            T[] newArray = new T[Size];
-            int j = Size - 1;
+            var convertedStack = obj as Stack<T>;
+            var Size = convertedStack.StackArray.Count() - 1;
 
-            for (int i = 0; i < Size; i++)
+
+            var stack = new Stack<T>(10);
+
+            for (int i = 0; i <= Size; i++)
             {
-                newArray[i] = stack.StackArray[j];
-                j--;
+                stack.Push(obj.Pop());
             }
 
-            return newArray;
+            return stack;     
         }
     }
 }
