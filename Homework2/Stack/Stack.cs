@@ -10,11 +10,15 @@ namespace Stack
     {
         public int Size { get; private set; }
         public T[] StackArray { get; private set; }
-        public int NextPosition { get; private set; }
+
+        private const int IncreaseSizeBy = 10;
+
+        public int CurrentPosition { get; set; }
 
 
-        public Stack()
+        public Stack(int size)
         {
+            Size = size;
             StackArray = new T[Size];
         }
 
@@ -22,7 +26,7 @@ namespace Stack
         //Checking the stack for emptiness
         public bool IsEmpty()
         {
-            if (Size == 0) 
+            if (CurrentPosition == 0) 
                 return true;
             else
                 return false;
@@ -36,36 +40,46 @@ namespace Stack
                 throw new Exception("Array is empty");
             }
 
-            var next = StackArray.Count() - 1;
-            var lastElement = StackArray[next];
-            ArrayDecrease();
-            return lastElement;
+            var lastElement = StackArray[CurrentPosition-1];
+            CurrentPosition--;
+            return StackArray[CurrentPosition];
         }
 
         //Pushing an item onto the stack
         public void Push(T obj)
         {
-            if(obj==null)
+            if (obj==null)
             {
                 throw new Exception("Argument cannot be null");
             }
 
-            ArrayIncrease();
 
-            StackArray[NextPosition] = obj;
-            NextPosition++;
+            if (CurrentPosition == Size)
+            {
+                ArrayIncrease();
+            }
+
+            StackArray[CurrentPosition] = obj;
+            CurrentPosition++;
+
+            // StackArray[NextPosition] = obj;
+            //  NextPosition++;
         }
 
 
         //Methods to dynamicaly increase/decrease array
         private void ArrayIncrease()
         {
-            Size++;
+            Size = Size + IncreaseSizeBy;
+
             T[] newArray = new T[Size];
-            Array.Copy(StackArray, newArray, NextPosition);
+
+
+            Array.Copy(StackArray, newArray, CurrentPosition);
             StackArray = newArray; 
         }
 
+        /*
         private void ArrayDecrease()
         {
             Size--;
@@ -75,6 +89,7 @@ namespace Stack
             Array.Copy(StackArray, newArray, NextPosition);
             StackArray = newArray;
         }
+        */
 
     }
 }

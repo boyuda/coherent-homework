@@ -6,10 +6,11 @@ namespace Stack
     {
         static void Main(string[] args)
         {
-            var stackOne = new Stack<int>();
+            var stackOne = new Stack<int>(2);
             stackOne.IsEmpty();
-            var stackTwo = new Stack<string>();
+            var stackTwo = new Stack<string>(10);
 
+            
             stackOne.Push(1);
             stackOne.Push(2);
             stackOne.Pop();
@@ -21,6 +22,11 @@ namespace Stack
             stackOne.Push(8);
             stackOne.Push(9);
             stackOne.Push(10);
+
+
+            stackTwo.Push("test");
+            stackTwo.Push("test");
+
 
             var stackThree = stackOne.Reverse();
             
