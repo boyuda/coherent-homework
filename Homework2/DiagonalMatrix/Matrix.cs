@@ -55,7 +55,7 @@ namespace DiagonalMatrix
         {
             Matrix secondMatrix = obj as Matrix;
 
-            if (Size == secondMatrix.Size || obj != null)
+            if (Size == secondMatrix.Size || obj != null || obj is not Matrix)
             {
                 for (int i = 0; i < Size; i++)
                 {
