@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MatrixTask
 {
     class Matrix<T>
     {
         private T[] DiagonalElements { get; set; }
-        public T OldObject { get; set; }
-        public T NewObject { get; set; }
-        public int ObjectIndex { get; set; }
+        public T OldObject { get; private set; }
+        public int ObjectIndex { get; private set; }
         public int Size { get; private set; }
-
         public event EventHandler<T> ElementChanged;
 
-
+        //Ctor accepting only Size
         public Matrix(int size)
         {
             if (size < 0)
@@ -29,7 +24,6 @@ namespace MatrixTask
                 DiagonalElements = new T[Size];
             }
         }
-
 
 
         //Adding Indexer
@@ -59,7 +53,7 @@ namespace MatrixTask
                 }
                 else if (i != j)
                 {
-                    // doing nothing
+                    // No Implementation
                 }
                 else
                 {
@@ -67,19 +61,14 @@ namespace MatrixTask
                     {
                         this.ElementChanged?.Invoke(this, this.DiagonalElements[i]);
                     }
-
+                    //Storing Old Value and Index
                     OldObject = DiagonalElements[i];
-                    NewObject = value;
                     ObjectIndex = i;
 
                     DiagonalElements[i] = value;
 
                 }
             }
-
-
-
         }
-
     }
 }

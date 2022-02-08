@@ -13,7 +13,6 @@ namespace MatrixTask
 
             matrixTwo[0, 0] = "Test";
             matrixOne[0, 0] = 5;
-            matrixOne[0, 0] = 6;
             matrixOne[0, 0] = 7;
             matrixTracker.Undo();
             matrixOne[0, 0] = 8;
