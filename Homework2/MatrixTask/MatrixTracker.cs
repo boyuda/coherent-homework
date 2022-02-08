@@ -5,6 +5,9 @@ namespace MatrixTask
 {
     class MatrixTracker<T>
     {
+        public T OldObject { get; private set; }
+        public int ElementIndex { get; private set; }
+
         public Matrix<T> Matrix { get; set; }
         public MatrixTracker(Matrix<T> matrix)
         {
@@ -12,16 +15,17 @@ namespace MatrixTask
             this.Matrix = matrix;
         }
 
-        private void Matrix_ElementChanged(object sender, T e)
+        private void Matrix_ElementChanged(object sender, ElementChangedEventArgs e)
         {
-            //No Implementation
+            OldObject = (T)e.OldElement;
+            ElementIndex = e.ObjectIndex;
         }
+
 
         //Returning previous value
         public void Undo()
         {
-            var Index = this.Matrix.ObjectIndex;
-            this.Matrix[Index, Index] = this.Matrix.OldObject;
+            Matrix[ElementIndex, ElementIndex] = OldObject;
         }
     }
 }
