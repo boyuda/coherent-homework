@@ -3,13 +3,15 @@
 
 namespace MatrixTask
 {
-    class Matrix<T>
+    public class Matrix<T>
     {
         private T[] DiagonalElements { get; set; }
 
         public int Size { get; private set; }
 
         public event EventHandler<ElementChangedEventArgs> ElementChanged;
+
+
 
         //Ctor accepting only Size
         public Matrix(int size)

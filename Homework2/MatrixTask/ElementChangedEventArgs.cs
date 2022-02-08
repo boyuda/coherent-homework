@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MatrixTask
 {
-    class ElementChangedEventArgs: EventArgs
+    public class ElementChangedEventArgs: EventArgs
     {
         public object OldElement { get; set; }
         public object NewElement { get; set; }

@@ -3,7 +3,7 @@
 
 namespace MatrixTask
 {
-    class MatrixTracker<T>
+    public class MatrixTracker<T>
     {
         public T OldObject { get; private set; }
         public int ElementIndex { get; private set; }
