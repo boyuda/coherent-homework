@@ -21,7 +21,7 @@ namespace MatrixTask
             else
             {
                 Size = size;
-
+                DiagonalNumbers = new T[Size];
             }
         }
 
@@ -54,7 +54,7 @@ namespace MatrixTask
                 }
                 else if (i != j)
                 {
-                    // do nothing
+                    // doing nothing
                 }
                 else
                 {
