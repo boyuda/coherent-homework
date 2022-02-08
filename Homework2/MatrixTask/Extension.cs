@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace MatrixTask
 {
-        public static class Extension
+
+    public static class Extension
         {
-        public delegate void Del<T>(Matrix<T> matrixOne, Matrix<T> matrixTwo);
-        public static void MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, Del<T> delegates)
+        public delegate T add<T>(Matrix<T> param1, Matrix<T> param2);
+
+        /// <summary>
+        /// Need to pass instruction for example ADDINT, ADDDOUBLE, ADDFLOAT, ADDSTRING AND HE WILL MAKE calculation based on that 
+        /// <returns></returns>
+
+        public static Matrix<T> MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, add<T> delegates)
         {
-            var number = matrixOne.Size;
+            return null;
         }
 
     }

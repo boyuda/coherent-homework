@@ -4,6 +4,8 @@ namespace MatrixTask
 {
     class Program
     {
+
+
         //Entry Point
         static void Main(string[] args)
         {
@@ -21,6 +23,9 @@ namespace MatrixTask
             Console.WriteLine(matrixOne.Size);
 
         }
+
+
+
 
     }
 }
