@@ -8,8 +8,13 @@ namespace MatrixTask
 {
     class Matrix<T>
     {
-        private T[] DiagonalNumbers { get; set; }
+        private T[] DiagonalElements { get; set; }
+        public T OldObject { get; set; }
+        public T NewObject { get; set; }
+        public int ObjectIndex { get; set; }
         public int Size { get; private set; }
+
+        public event EventHandler<T> ElementChanged;
 
 
         public Matrix(int size)
@@ -21,7 +26,7 @@ namespace MatrixTask
             else
             {
                 Size = size;
-                DiagonalNumbers = new T[Size];
+                DiagonalElements = new T[Size];
             }
         }
 
@@ -42,7 +47,7 @@ namespace MatrixTask
                 }
                 else
                 {
-                    return DiagonalNumbers[i];
+                    return DiagonalElements[i];
                 }
             }
 
@@ -58,12 +63,23 @@ namespace MatrixTask
                 }
                 else
                 {
-                    DiagonalNumbers[i] = value;
+                    if(!(value.Equals(this.DiagonalElements[i])))
+                    {
+                        this.ElementChanged?.Invoke(this, this.DiagonalElements[i]);
+                    }
+
+                    OldObject = DiagonalElements[i];
+                    NewObject = value;
+                    ObjectIndex = i;
+
+                    DiagonalElements[i] = value;
+
                 }
             }
 
 
 
         }
+
     }
 }
