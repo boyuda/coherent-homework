@@ -21,6 +21,7 @@ namespace MatrixTask
             else
             {
                 Size = size;
+
             }
         }
 
