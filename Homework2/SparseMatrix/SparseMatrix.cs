@@ -91,5 +91,21 @@ namespace SparseMatrixTask
 
             }
         }
+
+        public int GetCount(int x)
+        {
+            var counter = 0;
+            {
+                if(x == 0)
+                {
+                    counter = Size - (Matrix.Values.Sum(i => i.Count));
+                } 
+                else
+                {
+                    counter = Matrix.Count(i => i.Value.ContainsValue(x));
+                }
+                return counter;
+            }
+        }
     }
 }
