@@ -9,7 +9,6 @@ namespace SparseMatrixTask
 {
     class SparseMatrix
     {
-
         public int Size { get; set; }
         public int RowSize { get; set; }
         public int ColumnSize { get; set; }
@@ -17,8 +16,7 @@ namespace SparseMatrixTask
         private Dictionary<int, Dictionary<int, int>> Matrix;
 
 
-
-
+        //Constructor
         public SparseMatrix(int rowSize, int columnSize)
         {
             if (rowSize <= 0 && columnSize <= 0)
@@ -30,11 +28,9 @@ namespace SparseMatrixTask
                 RowSize = rowSize;
                 ColumnSize = columnSize;
                 Size = rowSize * columnSize;
-                Matrix = new Dictionary<int, Dictionary<int, int>>(Size);
+                Matrix = new Dictionary<int, Dictionary<int, int>>();
             }
-
         }
-
 
 
         //Indexer
@@ -42,11 +38,12 @@ namespace SparseMatrixTask
         {
             get
             {
-                Dictionary<int, int> cols;
-                if (Matrix.TryGetValue(i, out cols))
+                Dictionary<int, int> columns;
+
+                if (Matrix.TryGetValue(i, out columns))
                 {
                     int value = default;
-                    if (cols.TryGetValue(j, out value))
+                    if (columns.TryGetValue(j, out value))
                         return value;
                 }
                 return default;
@@ -68,18 +65,22 @@ namespace SparseMatrixTask
                     Matrix.Add(i, columns);
                 }
                 columns[j] = value;
-
             }
         }
 
+        //Return all elements
         public IEnumerable<int> GetAllElements()
         {
-            //Not Implemented
-            yield return 0;
-
+            for (int i = 0; i < RowSize; i++)
+            {
+                for (int j = 0; j < ColumnSize; j++)
+                {
+                    yield return this[i, j];
+                }
+            }
         }
 
-
+        //Returning only non zero elements
         public IEnumerable<(int, int, int)> GetNozeroElements()
         {
             foreach (var kvp in Matrix)
@@ -88,10 +89,11 @@ namespace SparseMatrixTask
                 {
                     yield return (kvp.Key, innerKvp.Key, innerKvp.Value);
                 }
-
             }
+
         }
 
+        //Counter of an element
         public int GetCount(int x)
         {
             var counter = 0;
@@ -106,6 +108,26 @@ namespace SparseMatrixTask
                 }
                 return counter;
             }
+        }
+
+        //Override to display sparse matrix
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+
+            for (int i = 0; i < RowSize; i++)
+            {
+                for (int j = 0; j < ColumnSize; j++)
+                {
+                    builder.Append(this[i, j]);
+
+                    if (j == ColumnSize - 1)
+                    {
+                        builder.Append('\n');
+                    }
+                }
+            }
+            return Convert.ToString(builder);
         }
     }
 }
