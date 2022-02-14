@@ -13,6 +13,7 @@ namespace BookTask
 
         public Book(string isbn)
         {
+            //Storing only digits in the ISBN
             if (isbn.Contains('-'))
             {
                isbn = isbn.Replace("-", "");

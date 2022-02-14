@@ -13,6 +13,7 @@ namespace BookTask
             BookCatalog = new Dictionary<string, Book>();
         }
 
+        //Get and Set book methods.
         public Book GetBook(string key)
         {
             if (key.Contains('-'))
