@@ -6,7 +6,12 @@ namespace BookTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var book = new Book("12-34-5678-9123-1");
+            var catalog = new Catalog();
+
+            catalog.SetBook(book.ISBN, book);
+            catalog.GetBook("123456789123-1");       
+
         }
     }
 }
