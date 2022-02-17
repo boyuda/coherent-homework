@@ -16,10 +16,7 @@ namespace BookTask
         //Get and Set book methods.
         public Book GetBook(string key)
         {
-            if (key.Contains('-'))
-            {
-                key = key.Replace("-", "");
-            }
+            key = String.Join("", key.Where(char.IsDigit));
 
             if (!(BookCatalog.ContainsKey(key)))
             {
@@ -31,14 +28,24 @@ namespace BookTask
 
         public void SetBook(string key, Book value)
         {
-            if (BookCatalog.ContainsKey(key))
+            key = String.Join("", key.Where(char.IsDigit));
+
+            if(key == value.ISBN)
             {
-                BookCatalog[key] = value;
+                if (BookCatalog.ContainsKey(key))
+                {
+                    BookCatalog[key] = value;
+                }
+                else
+                {
+                    BookCatalog.Add(key, value);
+                }
             }
             else
             {
-                BookCatalog.Add(key, value);
+                throw new ArgumentException("Wrong key provided");
             }
+
         }
     }
 }

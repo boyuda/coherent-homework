@@ -6,11 +6,11 @@ namespace BookTask
     {
         static void Main(string[] args)
         {
-            var book = new Book("12-34-5678-9123-1");
+            var book = new Book("-----------1234567890123---ddwaka$$%---------------------");
             var catalog = new Catalog();
 
-            catalog.SetBook(book.ISBN, book);
-            catalog.GetBook("123456789123-1");       
+            catalog.SetBook("1234567890123", book);
+            catalog.GetBook("123456789wdladlad0123");       
 
         }
     }

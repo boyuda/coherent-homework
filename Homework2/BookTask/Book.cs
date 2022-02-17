@@ -6,19 +6,16 @@ namespace BookTask
 {
     class Book
     {
-        public string Title { get; set; }
-        public DateTime? PublicationDate { get; set; }
-        public List<string> BookAuthors { get; set; }
+        public string Title { get; private set; }
+        public DateTime? PublicationDate { get; private set; }
+        public List<string> BookAuthors { get; private set; }
         public string ISBN { get; private set; }
 
         public Book(string isbn)
         {
-            //Storing only digits in the ISBN
-            if (isbn.Contains('-'))
-            {
-               isbn = isbn.Replace("-", "");
-            }
-            else if(isbn.Length == 13 && isbn.All(char.IsDigit))
+            isbn = String.Join("", isbn.Where(char.IsDigit));
+
+            if(isbn.Length == 13)
             {
                 ISBN = isbn;
                 Title = "";
