@@ -9,11 +9,11 @@ namespace SparseMatrixTask
 {
     class SparseMatrix
     {
-        public int Size { get; set; }
-        public int RowSize { get; set; }
-        public int ColumnSize { get; set; }
+        public int Size { get; private set; }
+        public int RowSize { get; private set; }
+        public int ColumnSize { get; private set; }
 
-        private Dictionary<int, Dictionary<int, int>> Matrix;
+        private Dictionary<(int, int), int> Matrix; //int,int is row/column
 
 
         //Constructor
@@ -28,43 +28,20 @@ namespace SparseMatrixTask
                 RowSize = rowSize;
                 ColumnSize = columnSize;
                 Size = rowSize * columnSize;
-                Matrix = new Dictionary<int, Dictionary<int, int>>();
+                Matrix = new Dictionary<(int, int), int>(Size);
             }
         }
 
-
-        //Indexer
         public int this[int i, int j]
         {
             get
             {
-                Dictionary<int, int> columns;
-
-                if (Matrix.TryGetValue(i, out columns))
-                {
-                    int value = default;
-                    if (columns.TryGetValue(j, out value))
-                        return value;
-                }
-                return default;
+                return Matrix.TryGetValue((i, j), out int value) ? Matrix[(i, j)] : 0;
             }
 
             set
             {
-                if (i >= RowSize || j >= ColumnSize)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-
-
-                Dictionary<int, int> columns;
-
-                if (!Matrix.TryGetValue(i, out columns))
-                {
-                    columns = new Dictionary<int, int>();
-                    Matrix.Add(i, columns);
-                }
-                columns[j] = value;
+                Matrix[(i, j)] = value;
             }
         }
 
@@ -80,35 +57,49 @@ namespace SparseMatrixTask
             }
         }
 
+
         //Returning only non zero elements
         public IEnumerable<(int, int, int)> GetNozeroElements()
         {
             foreach (var kvp in Matrix)
             {
-                foreach (var innerKvp in kvp.Value)
+                for (int i = 0; i < RowSize; i++)
                 {
-                    yield return (kvp.Key, innerKvp.Key, innerKvp.Value);
+                    for (int j = 0; j < ColumnSize; j++)
+                    {
+                        if (this[i, j] != 0)
+                            yield return (i, j, this[i, j]);
+                    }
                 }
             }
-
         }
 
+        
+        
         //Counter of an element
         public int GetCount(int x)
         {
             var counter = 0;
             {
-                if(x == 0)
+                if (x == 0)
                 {
-                    counter = Size - (Matrix.Values.Sum(i => i.Count));
+                    counter = Size - Matrix.Count;
                 } 
                 else
                 {
-                    counter = Matrix.Count(i => i.Value.ContainsValue(x));
+                    foreach (var n in Matrix)
+                    {
+                        if (n.Value == x)
+                        {
+                            counter++;
+                        }
+                    }
+
                 }
                 return counter;
             }
         }
+        
 
         //Override to display sparse matrix
         public override string ToString()
@@ -127,7 +118,9 @@ namespace SparseMatrixTask
                     }
                 }
             }
+            Console.WriteLine(Matrix.Count);
             return Convert.ToString(builder);
         }
+        
     }
 }
