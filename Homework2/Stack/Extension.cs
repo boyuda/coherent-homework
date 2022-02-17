@@ -10,11 +10,8 @@ namespace Stack
     {
         public static Stack<T> Reverse<T>(this IStack<T> obj)
         {
-            var convertedStack = obj as Stack<T>;
-            var Size = convertedStack.StackArray.Count() - 1;
-
-
             var stack = new Stack<T>(10);
+            var Size = Convert.ToInt32(stack.IsEmpty());
 
             for (int i = 0; i <= Size; i++)
             {

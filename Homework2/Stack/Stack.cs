@@ -26,10 +26,7 @@ namespace Stack
         //Checking the stack for emptiness
         public bool IsEmpty()
         {
-            if (CurrentPosition == 0) 
-                return true;
-            else
-                return false;
+            return CurrentPosition == 0;
         }
 
         //Remove and return the last inserted element
