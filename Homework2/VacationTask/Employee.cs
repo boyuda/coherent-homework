@@ -10,12 +10,14 @@ namespace VacationTask
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public List<Vacation> EmployeeVacation = new List<Vacation>();
+        public List<Vacation> EmployeeVacation { get; private set; }
 
         public Employee(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
+            EmployeeVacation = new List<Vacation>();
+
         }
     }
 }

@@ -20,8 +20,11 @@ namespace VacationTask
 
             vacation.GoOnVacation(employeeOne, new DateTime(2021, 01, 20), new DateTime(2021, 01, 25));
             vacation.GoOnVacation(employeeOne, new DateTime(2021, 01, 15), new DateTime(2021, 01, 16));
+            vacation.GoOnVacation(employeeOne, new DateTime(2021, 01, 25), new DateTime(2021, 01, 30));
+            vacation.GoOnVacation(employeeOne, new DateTime(2021, 01, 01), new DateTime(2021, 01, 10));
             vacation.GoOnVacation(employeeTwo, new DateTime(2021, 02, 15), new DateTime(2021, 02, 18));
             vacation.AverageVacationDays();
+            vacation.AverageEmployeeVacationDays();
 
 
 

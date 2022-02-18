@@ -59,5 +59,24 @@ namespace VacationTask
 
             return sum/counter;
         }
+
+        public void AverageEmployeeVacationDays()
+        {
+            var AverageEmployeeVacationDays =
+                from item in VacationList
+                group item by item.Employee.FirstName into NameGroup
+                select new
+                {
+                    Name = NameGroup.Key,
+                    AverageDays = NameGroup.Average(x => (x.LastDayOfVacation - x.FirstDayOfVacation).TotalDays)
+                };
+
+
+            foreach (var n in AverageEmployeeVacationDays)
+            {
+                Console.WriteLine(Tuple.Create(n.Name, n.AverageDays));
+            }
+
+        }
     }
 }
