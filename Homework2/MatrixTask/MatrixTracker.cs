@@ -25,6 +25,11 @@ namespace MatrixTask
         //Returning previous value
         public void Undo()
         {
+            if (OldObject.Equals(default(T)))
+            {
+                throw new ArgumentException("Can't Undo the default value");
+            }
+
             Matrix[ElementIndex, ElementIndex] = OldObject;
         }
     }

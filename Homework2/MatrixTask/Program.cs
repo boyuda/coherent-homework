@@ -12,7 +12,6 @@ namespace MatrixTask
             var matrixOne = new Matrix<int>(5);
             var matrixTwo = new Matrix<int>(5);
             var matrixTracker = new MatrixTracker<int>(matrixOne);
-
             matrixTwo[0, 0] = 5;
             matrixOne[0, 0] = 5;
             matrixOne[0, 0] = 7;
