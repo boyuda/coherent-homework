@@ -8,7 +8,7 @@ namespace MatrixTask
         public T OldObject { get; private set; }
         public int ElementIndex { get; private set; }
 
-        public Matrix<T> Matrix { get; set; }
+        public Matrix<T> Matrix { get; private set; }
         public MatrixTracker(Matrix<T> matrix)
         {
             matrix.ElementChanged += Matrix_ElementChanged;

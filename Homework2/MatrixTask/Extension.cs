@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MatrixTask
 {
-    public delegate Matrix<T> add<T>(Matrix<T> matrixOne, Matrix<T> matrixTwo);
+    public delegate T Add<T>(T elementOne, T elementTwo);
 
     public static class Extension
         {
 
-        public static Matrix<T> MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, add<T> delegates)
+        public static T MatrixSum<T>(this Matrix<T> matrixOne,int firstElementPosition, Matrix<T> matrixTwo, int secondElementPosition, Add<T> delegates)
         {
-            return delegates(matrixOne, matrixTwo);
+            return delegates(matrixOne[firstElementPosition, firstElementPosition], matrixTwo[secondElementPosition, secondElementPosition]);
         }
     }
 
