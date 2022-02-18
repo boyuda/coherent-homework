@@ -15,7 +15,7 @@ namespace MatrixTask
             this.Matrix = matrix;
         }
 
-        private void Matrix_ElementChanged(object sender, ElementChangedEventArgs e)
+        private void Matrix_ElementChanged(object sender, ElementChangedEventArgs<T> e)
         {
             OldObject = (T)e.OldElement;
             ElementIndex = e.ObjectIndex;

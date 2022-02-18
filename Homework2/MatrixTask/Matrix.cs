@@ -8,7 +8,7 @@ namespace MatrixTask
         private T[] DiagonalElements { get; set; }
         public int Size { get; private set; }
 
-        public event EventHandler<ElementChangedEventArgs> ElementChanged;
+        public event EventHandler<ElementChangedEventArgs<T>> ElementChanged;
         public T OldElement { get; set; }
 
         //Ctor accepting only Size
@@ -61,7 +61,7 @@ namespace MatrixTask
                     //Invoking Event and passing values as per task request
                     if (!(value.Equals(OldElement)))
                     {
-                        this.ElementChanged?.Invoke(this, new ElementChangedEventArgs { ObjectIndex = i, OldElement = OldElement, NewElement = value });
+                        this.ElementChanged?.Invoke(this, new ElementChangedEventArgs<T> { ObjectIndex = i, OldElement = OldElement, NewElement = value });
                     }
 
                     OldElement = value;
