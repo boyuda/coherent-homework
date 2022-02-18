@@ -78,5 +78,25 @@ namespace VacationTask
             }
 
         }
+
+        public void EmployeesOnVacationByMonth()
+        {
+            // var results = VacationList.GroupBy(x => x.FirstDayOfVacation.Month).Select(x => new { count = x.Count()}).ToList();
+
+            var vacationsByMonth =
+                from month in Enumerable.Range(1, 12)
+                let key = new { Month = month }
+                join revision in VacationList on key
+                          equals new
+                          {
+                              revision.FirstDayOfVacation.Month
+                          } into g
+                select new { GroupCriteria = key, Count = g.Count() };
+
+            foreach (var n in vacationsByMonth)
+            {
+                Console.WriteLine(Tuple.Create(n.GroupCriteria, n.Count));
+            }
+        }
     }
 }
