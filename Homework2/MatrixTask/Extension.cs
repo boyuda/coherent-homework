@@ -11,9 +11,18 @@ namespace MatrixTask
     public static class Extension
         {
 
-        public static T MatrixSum<T>(this Matrix<T> matrixOne,int firstElementPosition, Matrix<T> matrixTwo, int secondElementPosition, Add<T> delegates)
+        public static T MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, Add<T> addition)
         {
-            return delegates(matrixOne[firstElementPosition, firstElementPosition], matrixTwo[secondElementPosition, secondElementPosition]);
+            var Size = matrixOne.Size > matrixTwo.Size ? matrixOne.Size : matrixTwo.Size;
+
+            var newMatrix = new Matrix<T>(Size);
+
+            for (int i = 0; i < matrixOne.Size; i++)
+            {
+                newMatrix[i, i] = addition(matrixOne[i, i], matrixTwo[i, i]);
+            }
+
+            return T;
         }
     }
 

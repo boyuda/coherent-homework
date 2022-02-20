@@ -8,8 +8,8 @@ namespace MatrixTask
 {
     public class ElementChangedEventArgs<T>: EventArgs
     {
-        public object OldElement { get; set; }
-        public object NewElement { get; set; }
+        public T OldElement { get; set; }
+        public T NewElement { get; set; }
         public int ObjectIndex { get; set; }
 
 

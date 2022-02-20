@@ -19,7 +19,7 @@ namespace MatrixTask
             matrixOne[0, 0] = 8;
 
             //Sum of two integer Matrixes + passing instruction IntSum. 
-            matrixOne.MatrixSum(0, matrixTwo, 0, IntSum);
+            matrixOne.MatrixSum(matrixTwo, matrixOne);
         }
 
         private static int IntSum(int elementOne, int elementTwo)

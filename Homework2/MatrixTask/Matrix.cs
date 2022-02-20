@@ -25,6 +25,12 @@ namespace MatrixTask
             }
         }
 
+        internal void MatrixSum(Matrix<int> matrixTwo, Matrix<int> matrixOne)
+        {
+            //
+        }
+
+
         //Adding Indexer
         public T this[int i, int j]
         {
