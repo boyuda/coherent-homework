@@ -19,10 +19,11 @@ namespace MatrixTask
 
             for (int i = 0; i < matrixOne.Size; i++)
             {
-                newMatrix[i, i] = addition(matrixOne[i, i], matrixTwo[i, i]);
+               newMatrix[i, i] = addition(matrixOne[i, i], matrixTwo[i, i]);
             }
 
-            return T;
+            return (T)Convert.ChangeType(newMatrix, typeof(T));
+
         }
     }
 
