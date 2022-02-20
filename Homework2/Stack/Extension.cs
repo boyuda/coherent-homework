@@ -17,7 +17,6 @@ namespace Stack
             {
                 stack.Push(obj.Pop());
             }
-
             return stack;     
         }
     }
