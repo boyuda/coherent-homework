@@ -11,16 +11,28 @@ namespace BookTask
         public List<string> BookAuthors { get; private set; }
         public string ISBN { get; private set; }
 
-        public Book(string isbn)
+        public Book(string title, DateTime publicationDate, string isbn, List<string> bookAuthors)
         {
             isbn = String.Join("", isbn.Where(char.IsDigit));
 
-            if(isbn.Length == 13)
+            if(string.IsNullOrEmpty(title))
+            {
+                throw new ArgumentException("Title cannot be null or empty");
+            }
+
+
+            if(bookAuthors.GroupBy(n => n).Any(c => c.Count() > 1))
+            {
+                throw new ArgumentException("Author repeating");
+            }
+
+
+            if (isbn.Length == 13)
             {
                 ISBN = isbn;
-                Title = "";
-                BookAuthors = new List<string>();
-                PublicationDate = null;
+                Title = title;
+                BookAuthors = bookAuthors;
+                PublicationDate = publicationDate;
             } 
             else
             {

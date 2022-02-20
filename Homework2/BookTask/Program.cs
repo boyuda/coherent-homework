@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BookTask
 {
@@ -6,7 +7,14 @@ namespace BookTask
     {
         static void Main(string[] args)
         {
-            var book = new Book("-----------1234567890123---ddwaka$$%---------------------");
+            List<string> authors = new List<string>();
+            authors.Add("S. King");
+            authors.Add("A. Lindgren");
+
+            var book = new Book("C# Programming", new DateTime(2022, 01, 15), "-----------1234567890123---ddwaka$$%---------------------", authors);
+
+            authors.Add("S. King");
+            authors.Add("A. Lindgren");
             var catalog = new Catalog();
 
             catalog.SetBook("1234567890123", book);
