@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace SetOfTypesTask
+namespace CustomAttribute
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var test = new TestObject { FirstName = "Peter", Age = 25, City = "Vilnius" };
+            var log = new Logger("test");
+            log.Track(test);
+            log.att();
         }
     }
 }
