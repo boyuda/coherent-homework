@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace CustomAttribute
 {
     class Logger
     {
         public string FileName { get; set; }
+        public List<string> Properties { get; set; }
 
+
+        //Adding ctor
         public Logger(string fileName )
         {
-            if(string.IsNullOrEmpty(fileName)) 
-            {
-                fileName = "test";
-            }
-
             FileName = fileName;
+            Properties = new List<string>();
         }
 
-        public void Track(object testObject)
+
+        public void Track<T>(T testObject)
         {
+
+            //Checking if class has TrackingEntity applied to it.
             var checkEntityAttribute = testObject.GetType().IsDefined(typeof(TrackingEntityAttribute), true);
 
             if(!checkEntityAttribute)
@@ -31,24 +30,19 @@ namespace CustomAttribute
                 throw new ArgumentException("Class has no entity attribute");
             }
 
-            string json = JsonSerializer.Serialize(testObject);
+
+            //Checking if object has any properties with given attribute.
+            foreach (var prop in testObject.GetType().GetProperties())
+            {
+                if (prop.IsDefined(typeof(TrackingPropertyAttribute), false))
+                {
+
+                    Properties.Add(prop.Name.ToString() +":"+ prop.GetValue(testObject,null));
+                }
+            }
+
+            string json = JsonSerializer.Serialize(Properties);
             File.WriteAllText(@$"D:\{FileName}.json", json);
-
-
-            //foreach (var prop in testObject.GetType().GetProperties())
-            //{
-            //    Console.WriteLine("{0}={1}", prop.Name, prop.GetValue(testObject, null));
-            //}
         }
-
-        public void Propert(object testObject)
-        {
-            //
-        }
-
-        public void  att()
-        {
-        }
-
     }
 }

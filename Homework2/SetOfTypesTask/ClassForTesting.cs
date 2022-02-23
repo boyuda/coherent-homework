@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CustomAttribute
 {
     [TrackingEntity]
-    class TestObject
+    class ClassForTesting
     {
         [TrackingProperty]
         public string FirstName { get; set; }
