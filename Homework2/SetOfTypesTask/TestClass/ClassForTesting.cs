@@ -7,8 +7,9 @@ namespace CustomAttribute
     {
         [TrackingProperty]
         public string FirstName { get; set; }
-        [TrackingProperty]
+        [TrackingProperty(PropertyName = "Age")]
         public int Age;
+        [TrackingProperty]
         public string City { get; set; }
 
     }

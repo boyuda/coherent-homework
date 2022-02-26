@@ -37,8 +37,17 @@ namespace CustomAttribute
             {
                 if (prop.IsDefined(typeof(TrackingPropertyAttribute), false))
                 {
+                    var customAttribute = prop.GetCustomAttribute<TrackingPropertyAttribute>();
+                    if(!(string.IsNullOrWhiteSpace(customAttribute.PropertyName))) 
+                    
+                    {
+                        Properties.Add(customAttribute.PropertyName + ":" + prop.GetValue(testObject, null));
+                    }
+                    else
+                    {
+                        Properties.Add(prop.Name.ToString() + ":" + prop.GetValue(testObject, null));
+                    }
 
-                    Properties.Add(prop.Name.ToString() +":"+ prop.GetValue(testObject,null));
                 }
             }
 
@@ -49,8 +58,21 @@ namespace CustomAttribute
 
             foreach (var field in fields)
             {
+
                 if (field.IsDefined(typeof(TrackingPropertyAttribute), true))
-                    Properties.Add(field.Name.ToString() + ":" + field.GetValue(testObject));
+                {
+                    var customAttribute = field.GetCustomAttribute<TrackingPropertyAttribute>();
+
+                    if (!(string.IsNullOrWhiteSpace(customAttribute.PropertyName)))
+                    {
+                        Properties.Add(customAttribute.PropertyName + ":" + field.GetValue(testObject));
+                    }
+                    else
+                    {
+                        Properties.Add(field.Name.ToString() + ":" + field.GetValue(testObject));
+                    }
+                }
+                  
             }
 
 
