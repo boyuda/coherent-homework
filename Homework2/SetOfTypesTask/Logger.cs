@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text.Json;
 
 namespace CustomAttribute
@@ -41,8 +42,23 @@ namespace CustomAttribute
                 }
             }
 
+
+            //Checking if object has any fields with given attribute.
+            FieldInfo[] fields = testObject.GetType().GetFields();
+
+
+            foreach (var field in fields)
+            {
+                if (field.IsDefined(typeof(TrackingPropertyAttribute), true))
+                    Properties.Add(field.Name.ToString() + ":" + field.GetValue(testObject));
+            }
+
+
             string json = JsonSerializer.Serialize(Properties);
             File.WriteAllText(@$"D:\{FileName}.json", json);
         }
+
+
+
     }
 }
