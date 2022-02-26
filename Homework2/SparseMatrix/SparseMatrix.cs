@@ -41,7 +41,14 @@ namespace SparseMatrixTask
 
             set
             {
-                Matrix[(i, j)] = value;
+                if(value == 0)
+                {
+                    //Doing nothing
+                } 
+                else
+                {
+                    Matrix[(i, j)] = value;
+                }
             }
         }
 
