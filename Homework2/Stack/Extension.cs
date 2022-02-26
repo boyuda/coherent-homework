@@ -11,13 +11,12 @@ namespace Stack
         public static Stack<T> Reverse<T>(this IStack<T> obj)
         {
             var stack = new Stack<T>(10);
-            var Size = Convert.ToInt32(stack.IsEmpty());
 
-            for (int i = 0; i <= Size; i++)
+            while (!obj.IsEmpty())
             {
                 stack.Push(obj.Pop());
             }
-            return stack;     
+            return stack;
         }
     }
 }
