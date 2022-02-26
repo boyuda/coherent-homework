@@ -13,7 +13,13 @@ namespace Stack
             var stack = new Stack<T>(10);
             var Size = Convert.ToInt32(stack.IsEmpty());
 
-            for (int i = 0; i <= Size; i++)
+               var stack = new Stack<T>(10);
+
+        while(!obj.IsEmpty())
+        {
+            stack.Push(obj.Pop());
+        }
+        return stack; 
             {
                 stack.Push(obj.Pop());
             }
