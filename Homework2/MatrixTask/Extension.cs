@@ -11,7 +11,7 @@ namespace MatrixTask
     public static class Extension
         {
 
-        public static T MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, Add<T> addition)
+        public static Matrix<T> MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, Add<T> addition)
         {
             var size = matrixOne.Size > matrixTwo.Size ? matrixOne.Size : matrixTwo.Size;
 
