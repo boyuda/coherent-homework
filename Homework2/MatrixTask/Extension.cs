@@ -13,16 +13,25 @@ namespace MatrixTask
 
         public static T MatrixSum<T>(this Matrix<T> matrixOne, Matrix<T> matrixTwo, Add<T> addition)
         {
-            var Size = matrixOne.Size > matrixTwo.Size ? matrixOne.Size : matrixTwo.Size;
+            var size = matrixOne.Size > matrixTwo.Size ? matrixOne.Size : matrixTwo.Size;
 
-            var newMatrix = new Matrix<T>(Size);
+            var newMatrix = new Matrix<T>(size);
 
-            for (int i = 0; i < matrixOne.Size; i++)
+            for (int i = 0; i < newMatrix.Size; i++)
             {
-               newMatrix[i, i] = addition(matrixOne[i, i], matrixTwo[i, i]);
+                if (i > matrixOne.Size)
+                {
+                    newMatrix[i, i] = addition(default(T), matrixTwo[i, i]);
+                } else if (i > matrixTwo.Size)
+                {
+                    newMatrix[i, i] = addition(matrixOne[i, i], default(T));
+                } else
+                {
+                    newMatrix[i, i] = addition(matrixOne[i, i], matrixTwo[i, i]);
+                }
             }
 
-            return (T)Convert.ChangeType(newMatrix, typeof(T));
+            return newMatrix;
 
         }
     }
