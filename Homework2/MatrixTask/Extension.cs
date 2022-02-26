@@ -32,7 +32,6 @@ namespace MatrixTask
             }
 
             return newMatrix;
-
         }
     }
 
